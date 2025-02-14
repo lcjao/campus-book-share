@@ -214,13 +214,22 @@ public class UserController {
   - 返回注册后的用户对象。
 
 ### 6. 运行逻辑流程总结
-##### 启动应用程序：
-- 运行 `CampusBookShareApplication`，Spring Boot 初始化应用程序上下文。
-##### 客户端发送请求：
-- 客户端（如浏览器或 Postman）发送 HTTP 请求到 `/api/users/register`，请求体包含用户信息的 JSON 数据。
-##### 控制器接收请求：
-- `UserController` 接收请求，调用 `userService.registerUser(user)`。
-##### 业务逻辑处理：
-- `UserService` 设置用户的创建时间，调用 `userRepository.save(user)` 保存用户信息到数据库。
-##### 返回响应：
-- `UserService` 返回保存后的用户对象，`UserController` 将其转换为 JSON 格式返回给客户端。
+#### 1. 启动应用程序
+- **操作**：运行 `CampusBookShareApplication`。
+- **效果**：Spring Boot 初始化应用程序上下文，启动应用程序。
+#### 2. 客户端发送请求
+- **操作**：客户端（如浏览器或 Postman）发送 HTTP 请求。
+- **请求路径**：`/api/users/register`。
+- **请求体**：包含用户信息的 JSON 数据。
+#### 3. 控制器接收请求
+- **操作**：`UserController` 接收客户端请求。
+- **逻辑**：调用 `userService.registerUser(user)` 进行业务处理。
+#### 4. 业务逻辑处理
+- **操作**：`UserService` 执行业务逻辑。
+- **步骤**：
+  - 设置用户的创建时间 `created_at` 为当前时间。
+  - 调用 `userRepository.save(user)` 将用户信息保存到数据库。
+#### 5. 返回响应
+- **操作**：`UserService` 返回保存后的用户对象。
+- **逻辑**：`UserController` 将用户对象转换为 JSON 格式并返回给客户端。
+
